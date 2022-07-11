@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>MRU</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#flip").click(function () {
+                $("#panel").slideToggle("slow");
+            });
+            $("#calcular").click(function (e) {
+                e.preventDefault();
+                let n1 = parseInt($("#distancia").val());
+                let n2 = parseInt($("#tiempo").val());
+                let r = n1 / n2;
+                $("#velocidad").val(r);
+                $("table").append("<tr id='cuerpoTabla'><td>" + n1 + "</td><td>" + n2 + "</td><td>" + r + "</td></tr>");
+                $("#distancia").val("");
+                $("#tiempo").val("");
+            });
+            $("#borrarTabla").click(function (e) {
+                e.preventDefault();
+                $("table").append("");
+            });
+        });
+    </script>
+    <style>
+        body {
+            color: aliceblue;
+        }
+
+        #panel,
+        #flip {
+            padding: 5px;
+            text-align: center;
+            background-color: #393939;
+            border: solid 1px #1e00ff;
+        }
+
+        #panel {
+            padding: 50px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-fixed ..." style="background-image: url(img/fondo.png)">
+        <center>
+            <span class="box-decoration-slice bg-gradient-to-r from-green-600 to-blue-500 text-white px-2  ">
+                Movimiento Rectilineo Uniforme
+            </span>
+        </center>
+        <div class="pl-5 ...">
+            <p>
+                El <a class="underline decoration-sky-500"><em>MRU</em></a> o <a
+                    class="underline decoration-indigo-500"><em>movimineto
+                        rectilineo uniforme</em></a> es aquel con velocidad constante y
+                cuya trayectoria es una línea recta dado que <a class="underline decoration-red-500"><em>su aceleración
+                        es
+                        nula.</em></a>
+                Es un
+                fenómeno en que se juntan tres variables para escribir un desplazamiento
+                constante, en una línea recta indeformable. Este movimiento es el más
+                sencillo que podemos encontrar como <a class="underline decoration-red-500"><em>aproximación en la
+                        naturaleza</em></a>,
+                como
+                por ejemplo una gota de agua que cae de una nube y alcanza la velocidad
+                límite, o un automóvil en una carretera con velocidad constante de 100
+                Km/hr, etc.
+            </p>
+            <div class="drop-shadow-2xl">
+                <center><img src="/img/GraficaMRUHI.png" /></center>
+            </div>
+            <h3>Caracteristicas:</h3>
+
+            <li>Movimiento que se realiza sobre una línea recta.</li>
+            <li>Velocidad constante; implica magnitud y dirección constantes.</li>
+            <li>
+                La magnitud de la velocidad recibe el nombre de celeridad o rapidez sin
+                aceleración.
+            </li>
+            <br>
+            <p>
+                Para realizar los calculos de MRU se utiliza el triangulo de MRU el cual
+                ayuda a la comprencion de las formulas.
+            </p>
+            <div class="drop-shadow-2xl">
+                <center>
+                    <img src="/img/TrianguloMRUHI.png"><br>
+                    <img src="/img/formulas_mruHI.png" width="500" height="500"><br>
+                </center>
+            </div>
+        </div>
+        <div id="flip">CALCULADORA MRU!</div>
+        <div id="panel">
+            Calcular velocidad:
+            d(m)=<input type="number" id="distancia" style="color: black;">
+            t(s)=<input type="number" id="tiempo" style="color: black;">
+            <button id="calcular" style="background-color: rgba(0, 0, 255, 0.392); border-radius: 5px;">
+                CALCULAR</button><br> <br>
+            v(m/s)=<input type="number" id="velocidad" style="color: black;" readonly><br> <br>
+
+            <div id="flip">Historial de resultados</div>
+            <table style="width:100%">
+                <tr>
+                    <th>Distancia (m)</th>
+                    <th>Tiempo (s)</th>
+                    <th>Velocidad (m/s)</th>
+                </tr>
+            </table>
+            <button id="borrarTabla" style="background-color: rgba(0, 0, 255, 0.392); border-radius: 5px;"> RESETEAR
+                TABLA</button>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
