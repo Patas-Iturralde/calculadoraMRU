@@ -27,7 +27,7 @@
             });
             $("#borrarTabla").click(function (e) {
                 e.preventDefault();
-                $("table").append("");
+                $("#cuerpoTabla").remove();
             });
         });
     </script>
@@ -116,8 +116,7 @@
                     <th>Velocidad (m/s)</th>
                 </tr>
             </table>
-            <button id="borrarTabla" style="background-color: rgba(0, 0, 255, 0.392); border-radius: 5px;"> RESETEAR
-                TABLA</button>
+            <button id="borrarTabla" style="background-color: rgba(0, 0, 255, 0.392); border-radius: 5px;"> BORRAR RESULTADO</button>
         </div>
     </div>
     </div>
